@@ -1,5 +1,5 @@
 {
-    "name": "socialiteproviders/microsoft-azure",
+    "name": "infrashield/microsoft-azure-custom",
     "description": "Microsoft Azure OAuth2 Provider for Laravel Socialite",
     "license": "MIT",
     "keywords": [
@@ -14,11 +14,15 @@
         {
             "name": "Chris Hemmings",
             "email": "chris@hemmin.gs"
+        },
+        {
+            "name": "Andrew McGrail",
+            "email": "drew@infrashield.com"
         }
     ],
     "support": {
-        "issues": "https://github.com/socialiteproviders/providers/issues",
-        "source": "https://github.com/socialiteproviders/providers",
+        "issues": "https://github.com/infrashield/microsoft-azure-custom/issues",
+        "source": "https://github.com/infrashield/microsoft-azure-custom",
         "docs": "https://socialiteproviders.com/microsoft-azure"
     },
     "require": {
