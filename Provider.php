@@ -111,11 +111,11 @@ class Provider extends AbstractProvider
      */
     protected function getBaseUrl(): string
     {
-        return 'https://login.microsoftonline.com/'.$this->getConfig('tenant', 'common');
+        return $this->getConfig('microsoft_url','https://login.microsoftonline.com/').$this->getConfig('tenant', 'common');
     }
 
     public static function additionalConfigKeys(): array
     {
-        return ['tenant', 'proxy'];
+        return ['tenant', 'proxy', 'microsoft_url'];
     }
 }
