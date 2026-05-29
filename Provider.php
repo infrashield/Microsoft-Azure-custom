@@ -9,12 +9,6 @@ class Provider extends AbstractProvider
 {
     public const IDENTIFIER = 'AZURE';
 
-    /**
-     * The base Azure Graph URL.
-     *
-     * @var string
-     */
-    protected $graphUrl = 'https://graph.microsoft.com/v1.0/me';
 
     protected $scopeSeparator = ' ';
 
@@ -62,7 +56,7 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get($this->graphUrl, [
+        $response = $this->getHttpClient()->get($this->getGraphUrl(), [
             RequestOptions::HEADERS => [
                 'Accept'        => 'application/json',
                 'Authorization' => 'Bearer '.$token,
@@ -106,6 +100,7 @@ class Provider extends AbstractProvider
         return json_decode((string) $response->getBody(), true);
     }
 
+
     /**
      * @return string
      */
@@ -114,8 +109,12 @@ class Provider extends AbstractProvider
         return $this->getConfig('microsoft_url','https://login.microsoftonline.com/').$this->getConfig('tenant', 'common');
     }
 
+    protected function getGraphUrl(): string
+    {
+        return $this->getConfig('graph_url','https://graph.microsoft.com/v1.0/me');
+    }
     public static function additionalConfigKeys(): array
     {
-        return ['tenant', 'proxy', 'microsoft_url'];
+        return ['tenant', 'proxy', 'microsoft_url', 'graph_url'];
     }
 }
